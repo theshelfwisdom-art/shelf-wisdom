@@ -17,9 +17,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Fetch quotes
-        run: python scripts/fetch_quotes.py
-
       - name: Pick a random quote
         run: python scripts/pick_quote.py
 
