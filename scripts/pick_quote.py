@@ -14,9 +14,12 @@ def get_random_quote():
     with open(os.path.join(BOOKS_DIR, chosen_book), "r", encoding="utf-8") as f:
         quotes = [line.strip() for line in f if line.strip()]
 
-    # Replace line 16 (raise Exception(...)) with:
+    # Replace:
+# raise Exception(f"No quotes found in {chosen_book}")
+
+# With:
 if not quotes:
-    print(f"Warning: No quotes found in {chosen_book}. Using default quote.")
+    print(f"Warning: No quotes found in {chosen_book}. Using default fallback quote.")
     return "The secret of getting ahead is getting started.", "Mark Twain"
 
 
