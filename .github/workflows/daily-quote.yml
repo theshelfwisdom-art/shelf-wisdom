@@ -29,17 +29,10 @@ jobs:
       - name: Generate video
         run: python scripts/generate_video.py
 
-      - name: Upload video artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: daily-video
-          path: output/daily_video.mp4
-
-      - name: Commit result
+       - name: Commit result
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add current_quote.txt books/daily-wisdom.txt
+          git add current_quote.txt books/ output/daily_video.mp4
           git commit -m "Daily quote update" || echo "No changes to commit"
-          git push
-          
+          git push 
