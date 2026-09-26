@@ -1,4 +1,4 @@
-name: Daily Quote
+Name: Daily Quote
 
 on:
   schedule:
@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Fetch quotes
+        run: python scripts/fetch_quotes.py
+
       - name: Pick a random quote
         run: python scripts/pick_quote.py
 
@@ -24,6 +27,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add current_quote.txt
+          git add current_quote.txt books/meditations.txt
           git commit -m "Daily quote update" || echo "No changes to commit"
           git push
+          
