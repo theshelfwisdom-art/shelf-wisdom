@@ -14,9 +14,11 @@ def get_random_quote():
     with open(os.path.join(BOOKS_DIR, chosen_book), "r", encoding="utf-8") as f:
         quotes = [line.strip() for line in f if line.strip()]
 
-    if not quotes:
-    # Return a default quote instead of throwing an error and breaking the pipeline
-    return "Keep your face always toward the sunshine—and shadows will fall behind you.", "Fallback Inspiration"
+    # Replace line 16 (raise Exception(...)) with:
+if not quotes:
+    print(f"Warning: No quotes found in {chosen_book}. Using default quote.")
+    return "The secret of getting ahead is getting started.", "Mark Twain"
+
 
     quote = random.choice(quotes)
     return quote, book_name
