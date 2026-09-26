@@ -15,7 +15,8 @@ def get_random_quote():
         quotes = [line.strip() for line in f if line.strip()]
 
     if not quotes:
-        raise Exception(f"No quotes found in {chosen_book}")
+    # Return a default quote instead of throwing an error and breaking the pipeline
+    return "Keep your face always toward the sunshine—and shadows will fall behind you.", "Fallback Inspiration"
 
     quote = random.choice(quotes)
     return quote, book_name
