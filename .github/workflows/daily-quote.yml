@@ -20,8 +20,8 @@ jobs:
       - name: Pick a random quote
         run: python scripts/pick_quote.py
 
-      - name: Install fonts
-        run: sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
+      - name: Install ffmpeg and fonts
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-dejavu-core
 
       - name: Install Python deps
         run: pip install pillow
